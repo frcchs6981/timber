@@ -1,3 +1,3 @@
-This is the source code for timber, our 2025 robot.
+This is the source code for Timber, CHS FRC 6981's Robot for the '25 Season (Dive).
 
-Hey anyone from 24-25 please write something interesting about timber here
+Timber's code uses FRC REV MAXSwerve's example code as a base to work off of. It has an elevator mechanism, a mechanically driven grabber, and uses a REV Swerve drive.

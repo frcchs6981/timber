@@ -36,10 +36,12 @@ public class ElevatorSubsystem extends SubsystemBase {
   }
 
   public void Up() {
-    // m_extendingspark1.getClosedLoopController().setReference(-60, ControlType.kVelocity);
-    // m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
-    m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
-    m_extendingspark2.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
+    //m_extendingspark1.getClosedLoopController().setReference(-60, ControlType.kVelocity);
+    //m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
+    //m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
+    //m_extendingspark2.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
+    m_extendingspark1.set(0.5);
+    m_extendingspark2.set(-0.5);
     System.out.println("Going Up");
   }
 
