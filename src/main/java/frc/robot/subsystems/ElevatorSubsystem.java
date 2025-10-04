@@ -7,9 +7,9 @@ import edu.wpi.first.hal.HAL;
 import edu.wpi.first.math.controller.ElevatorFeedforward;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.wpilibj.PneumaticsControlModule;*/
+import edu.wpi.first.wpilibj.PneumaticsControlModule;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;*/
 import frc.robot.Constants.DriveConstants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.spark.SparkMax;
@@ -40,16 +40,19 @@ public class ElevatorSubsystem extends SubsystemBase {
     //m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
     //m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
     //m_extendingspark2.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
-    m_extendingspark1.set(0.5);
-    m_extendingspark2.set(-0.5);
-    System.out.println("Going Up");
+    m_extendingspark1.set(-0.5);
+    m_extendingspark2.set(0.5);
+    System.out.println(DriveConstants.kElevatorRightCanId);
+    System.out.println(DriveConstants.kElevatorLeftCanId);
   }
 
   public void Down() {
     // m_extendingspark1.getClosedLoopController().setReference(60, ControlType.kVelocity);
     // m_extendingspark2.getClosedLoopController().setReference(-60, ControlType.kVelocity);
-    m_extendingspark1.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
-    m_extendingspark2.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
+    //m_extendingspark1.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
+    //m_extendingspark2.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
+    m_extendingspark1.set(0.5);
+    m_extendingspark2.set(-0.5);
     System.out.println("Going Down");
   }
 

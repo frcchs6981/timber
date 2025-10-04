@@ -29,13 +29,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import java.util.List;
 
 
-import com.pathplanner.lib.auto.AutoBuilder;
+/*import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.path.PathPlannerPath;
 
 import choreo.auto.AutoTrajectory;
 import choreo.auto.AutoFactory;
 
-import choreo.auto.AutoTrajectory;
+import choreo.auto.AutoTrajectory;*/
 
 /*
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -52,7 +52,7 @@ public class RobotContainer {
 
 
   // The driver's controller
-XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
+  XboxController m_driverController = new XboxController(OIConstants.kDriverControllerPort);
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
