@@ -35,7 +35,7 @@ public class ElevatorSubsystem extends SubsystemBase {
     aPressed = !aPressed;
   }
 
-  public void moveElevator(velocity) {
+  public void moveElevator(float velocity) {
     //m_extendingspark1.getClosedLoopController().setReference(-60, ControlType.kVelocity);
     //m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
     //m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);

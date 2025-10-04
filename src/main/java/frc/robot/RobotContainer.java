@@ -88,8 +88,8 @@ public class RobotContainer {
 new JoystickButton(m_driverController, Button.kShare.value).onTrue(Commands.runOnce(() -> m_robotDrive.ControlMult(), m_robotDrive));
 new JoystickButton(m_driverController, Button.kOptions.value).onTrue(Commands.runOnce(() -> m_robotDrive.Acceleration(), m_robotDrive));
 new JoystickButton(m_driverController, Button.kSquare.value).whileTrue(new RunCommand(() -> m_robotDrive.setX(), m_robotDrive));
-new JoystickButton(m_driverController, Button.kR1.value).whileTrue(new RunCommand(() -> m_robotElevate.Up(), m_robotElevate));
-new JoystickButton(m_driverController, Button.kL1.value).whileTrue(new RunCommand(() -> m_robotElevate.Down(), m_robotElevate));
+new JoystickButton(m_driverController, Button.kR1.value).whileTrue(new RunCommand(() -> m_robotElevate.moveElevator(-1.0f), m_robotElevate));
+new JoystickButton(m_driverController, Button.kL1.value).whileTrue(new RunCommand(() -> m_robotElevate.moveElevator(1.0f), m_robotElevate));
 new JoystickButton(m_driverController, Button.kTriangle.value).onTrue(Commands.runOnce(() -> m_robotElevate.Intake(), m_robotElevate));
 // new JoystickButton(m_driverController, Button.kCircle.value).whileTrue(new RunCommand(() -> m_robotElevate.UpToggle(), m_robotElevate));
 // new JoystickButton(m_driverController, Button.kCross.value).whileTrue(new RunCommand(() -> m_robotElevate.DownToggle(), m_robotElevate));
