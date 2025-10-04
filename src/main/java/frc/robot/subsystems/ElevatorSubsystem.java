@@ -35,26 +35,27 @@ public class ElevatorSubsystem extends SubsystemBase {
     aPressed = !aPressed;
   }
 
-  public void Up() {
+  public void moveElevator(velocity) {
     //m_extendingspark1.getClosedLoopController().setReference(-60, ControlType.kVelocity);
     //m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
     //m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
     //m_extendingspark2.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
-    m_extendingspark1.set(-0.5);
-    m_extendingspark2.set(0.5);
+    m_extendingspark1.set(-0.5 * velocity);
+    m_extendingspark2.set(0.5 * velocity);
     System.out.println(DriveConstants.kElevatorRightCanId);
     System.out.println(DriveConstants.kElevatorLeftCanId);
+    System.out.println(velocity)
   }
 
-  public void Down() {
+  //public void Down() {
     // m_extendingspark1.getClosedLoopController().setReference(60, ControlType.kVelocity);
     // m_extendingspark2.getClosedLoopController().setReference(-60, ControlType.kVelocity);
     //m_extendingspark1.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
     //m_extendingspark2.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
-    m_extendingspark1.set(0.5);
-    m_extendingspark2.set(-0.5);
-    System.out.println("Going Down");
-  }
+   // m_extendingspark1.set(0.5);
+    //m_extendingspark2.set(-0.5);
+    //System.out.println("Going Down");
+  //}
 
   // public void UpToggle() {
   //   if (aPressed) {
