@@ -20,22 +20,21 @@ import com.revrobotics.spark.SparkClosedLoopController;*/
 
 public class ElevatorSubsystem extends SubsystemBase {
 
-  boolean aPressed;
-
+  public boolean[] pressed = new boolean[2];
   //SparkMax addition motor capacity for elevator.
   private final SparkMax m_extendingspark1 = new SparkMax(DriveConstants.kElevatorLeftCanId,MotorType.kBrushless);
   private final SparkMax m_extendingspark2 = new SparkMax(DriveConstants.kElevatorRightCanId,MotorType.kBrushless);
   // private final SparkMax m_extendingspark3 = new SparkMax(DriveConstants.kIntakeTopCanId,MotorType.kBrushless);
   // private final SparkMax m_extendingspark4 = new SparkMax(DriveConstants.kIntakeBottomCanId,MotorType.kBrushless);
 
+
+
+
 // private final Solenoid m_solenoid = new Solenoid(PneumaticsModuleType.REVPH, 25);
 
 
-  public void Intake() {
-    aPressed = !aPressed;
-  }
 
-  public void moveElevator(velocity) {
+  public void moveElevator(float velocity, int val) {
     //m_extendingspark1.getClosedLoopController().setReference(-60, ControlType.kVelocity);
     //m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
     //m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
@@ -44,7 +43,18 @@ public class ElevatorSubsystem extends SubsystemBase {
     m_extendingspark2.set(0.5 * velocity);
     System.out.println(DriveConstants.kElevatorRightCanId);
     System.out.println(DriveConstants.kElevatorLeftCanId);
-    System.out.println(velocity)
+    System.out.println(velocity);
+
+    pressed[val] = true;
+  }
+
+  public void stopElevator(int val)
+  {
+    pressed[val] = false;
+    if (pressed[1] && pressed[0]){
+      m_extendingspark1.set(0);
+      m_extendingspark2.set(0);
+    }
   }
 
   //public void Down() {
