@@ -20,32 +20,41 @@ import com.revrobotics.spark.SparkClosedLoopController;*/
 
 public class ElevatorSubsystem extends SubsystemBase {
 
-  boolean aPressed;
-
+  public int[] pressed = new int[2];
   //SparkMax addition motor capacity for elevator.
   private final SparkMax m_extendingspark1 = new SparkMax(DriveConstants.kElevatorLeftCanId,MotorType.kBrushless);
   private final SparkMax m_extendingspark2 = new SparkMax(DriveConstants.kElevatorRightCanId,MotorType.kBrushless);
   // private final SparkMax m_extendingspark3 = new SparkMax(DriveConstants.kIntakeTopCanId,MotorType.kBrushless);
   // private final SparkMax m_extendingspark4 = new SparkMax(DriveConstants.kIntakeBottomCanId,MotorType.kBrushless);
 
+
+
+
 // private final Solenoid m_solenoid = new Solenoid(PneumaticsModuleType.REVPH, 25);
 
 
-  public void Intake() {
-    aPressed = !aPressed;
-  }
 
-  public void moveElevator(float velocity) {
+  public void moveElevator(int Direction, int Holder) {
+    pressed[Holder] = Direction;
+    int State = 0;
+
+    for(int g : pressed) { State += Direction; }
+    m_extendingspark1.set(State);
+    m_extendingspark2.set(-State);
     //m_extendingspark1.getClosedLoopController().setReference(-60, ControlType.kVelocity);
     //m_extendingspark2.getClosedLoopController().setReference(60, ControlType.kVelocity);
     //m_extendingspark1.getClosedLoopController().setReference(-0.2, ControlType.kDutyCycle);
     //m_extendingspark2.getClosedLoopController().setReference(0.2, ControlType.kDutyCycle);
-    m_extendingspark1.set(-0.5 * velocity);
-    m_extendingspark2.set(0.5 * velocity);
-    System.out.println(DriveConstants.kElevatorRightCanId);
-    System.out.println(DriveConstants.kElevatorLeftCanId);
-    System.out.println(velocity)
   }
+
+ /* public void stopElevator(int val)
+  {
+    pressed[val] = false;
+    if (pressed[1] && pressed[0]){
+      m_extendingspark1.set(0);
+      m_extendingspark2.set(0);
+    }
+  }*/
 
   //public void Down() {
     // m_extendingspark1.getClosedLoopController().setReference(60, ControlType.kVelocity);
